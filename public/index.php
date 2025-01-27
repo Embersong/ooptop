@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 
 use Ember\Oop\core\Render;
 

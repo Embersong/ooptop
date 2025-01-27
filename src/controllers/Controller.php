@@ -3,6 +3,7 @@
 namespace Ember\Oop\controllers;
 
 use Ember\Oop\interfaces\IRender;
+use Ember\Oop\model\User;
 
 abstract class Controller
 {
@@ -26,7 +27,9 @@ abstract class Controller
     public function render($template, $params = []): string
     {
         return $this->renderTemplate('layouts/main', [
-            'menu' => $this->renderTemplate('menu'),
+            'menu' => $this->renderTemplate('menu', [
+                'user' => User::getName()
+            ]),
             'content' => $this->renderTemplate($template, $params)
         ]);
 

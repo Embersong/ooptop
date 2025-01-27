@@ -12,7 +12,7 @@ abstract class DbModel implements IModel
     public static function getOne(int $id)
     {
         $table = static::getTableName();
-        $sql = "SELECT * FROM $table WHERE id = :id" . PHP_EOL;
+        $sql = "SELECT * FROM $table WHERE id = :id";
         return Db::getInstance()->queryOneObject($sql, ['id' => $id], static::class);
     }
 
@@ -20,7 +20,7 @@ abstract class DbModel implements IModel
     public static function getAll()
     {
         $table = static::getTableName();
-        $sql = "SELECT * FROM $table" . PHP_EOL;
+        $sql = "SELECT * FROM $table ORDER BY id DESC";
         return Db::getInstance()->queryAll($sql);
     }
 
